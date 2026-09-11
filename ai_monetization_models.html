@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI収益モデルの構造比較</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; padding: 24px 16px 48px;
+    font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+    background: #faf9f7; color: #1f2328;
+    max-width: 780px; margin-inline: auto; line-height: 1.7;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #16181d; color: #e6e4e0; }
+  }
+  h1 { font-size: 1.3rem; margin: 0 0 4px; }
+  p.lead { margin: 0 0 28px; font-size: .92rem; opacity: .8; }
+  figure { margin: 0 0 36px; }
+  svg { max-width: 100%; height: auto; display: block; }
+  figcaption { font-size: .85rem; opacity: .75; margin-top: 6px; }
+  .num { font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>AI収益モデルの構造比較 — 金は誰から来て、忠実さはどこへ向くか</h1>
+<p class="lead">実線(緑)=お金の流れ、破線=価値・注意の流れ。3つの登場人物の配置は全図共通。モデル間の違いは「矢印の付き方」だけである。</p>
+
+<figure>
+<svg viewBox="0 0 720 190" role="img" aria-label="サブスク・APIモデル:ユーザーがAIに料金を払い、AIがユーザーに価値を返す。第三者は存在しない">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+    <marker id="g1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a9e5c"/></marker>
+  </defs>
+  <text x="16" y="28" font-size="14" font-weight="700" fill="currentColor"><tspan class="num">① サブスク / API(通常のB2B・B2C)</tspan></text>
+  <rect x="60" y="70" width="150" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="135" y="103" font-size="13" text-anchor="middle" fill="currentColor">ユーザー(=支払者)</text>
+  <rect x="440" y="70" width="150" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="515" y="103" font-size="13" text-anchor="middle" fill="currentColor">AI企業</text>
+  <line x1="212" y1="84" x2="436" y2="84" stroke="#1a9e5c" stroke-width="2" marker-end="url(#g1)"/>
+  <text x="324" y="76" font-size="12" text-anchor="middle" fill="#1a9e5c">料金(前払い)</text>
+  <line x1="436" y1="112" x2="214" y2="112" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a1)"/>
+  <text x="324" y="132" font-size="12" text-anchor="middle" fill="currentColor">回答・価値</text>
+  <text x="360" y="170" font-size="12" text-anchor="middle" fill="currentColor" opacity=".7">払う人=使う人。利害は一直線だが、払うのはユーザーの数%だけ</text>
+</svg>
+<figcaption>図1: 基本形。健全だが、無料ユーザーの山からは1円も生まれない。</figcaption>
+</figure>
+
+<figure>
+<svg viewBox="0 0 720 250" role="img" aria-label="広告モデル:広告主がAIプラットフォームに広告費を払い、プラットフォームはユーザーの注意とデータを広告主に売る。AIの忠実さは支払者である広告主側へ引かれる">
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+    <marker id="g2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a9e5c"/></marker>
+    <marker id="r2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d64545"/></marker>
+  </defs>
+  <text x="16" y="28" font-size="14" font-weight="700" fill="currentColor">② 広告モデル(ChatGPT × Amazon DSP)</text>
+  <rect x="30" y="90" width="140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="100" y="118" font-size="13" text-anchor="middle" fill="currentColor">ユーザー</text>
+  <text x="100" y="134" font-size="10" text-anchor="middle" fill="currentColor" opacity=".7">無料で使う</text>
+  <rect x="290" y="90" width="140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="360" y="123" font-size="13" text-anchor="middle" fill="currentColor">AIプラットフォーム</text>
+  <rect x="550" y="90" width="140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="620" y="118" font-size="13" text-anchor="middle" fill="currentColor">広告主(企業)</text>
+  <text x="620" y="134" font-size="10" text-anchor="middle" fill="currentColor" opacity=".7">=真の顧客</text>
+  <line x1="546" y1="104" x2="434" y2="104" stroke="#1a9e5c" stroke-width="2" marker-end="url(#g2)"/>
+  <text x="490" y="96" font-size="12" text-anchor="middle" fill="#1a9e5c">広告費</text>
+  <line x1="434" y1="132" x2="548" y2="132" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a2)"/>
+  <text x="490" y="152" font-size="11" text-anchor="middle" fill="currentColor">ユーザーの注意・購買意図</text>
+  <line x1="174" y1="104" x2="286" y2="104" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a2)"/>
+  <text x="230" y="96" font-size="11" text-anchor="middle" fill="currentColor">注意・データ</text>
+  <line x1="286" y1="132" x2="176" y2="132" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a2)"/>
+  <text x="230" y="152" font-size="11" text-anchor="middle" fill="currentColor">無料の回答+広告</text>
+  <path d="M 375 150 Q 420 195 545 160" fill="none" stroke="#d64545" stroke-width="2" marker-end="url(#r2)"/>
+  <text x="450" y="205" font-size="12" text-anchor="middle" fill="#d64545" font-weight="600">忠実さの重力(支払者側へ)</text>
+  <text x="360" y="238" font-size="12" text-anchor="middle" fill="currentColor" opacity=".7">売られている商品はユーザー自身。B2Bだが、受益者と支払者が別人</text>
+</svg>
+<figcaption>図2: 広告の病巣は赤い矢印。金を払わないユーザーへの忠実さと、金を払う広告主への引力が対立する。</figcaption>
+</figure>
+
+<figure>
+<svg viewBox="0 0 720 240" role="img" aria-label="中立化した取引手数料モデル:複数の売り手全員から一律の手数料を取るため、AIはどの商品を薦めても収益が同じになり、推薦を歪める動機が消える">
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+    <marker id="g3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a9e5c"/></marker>
+  </defs>
+  <text x="16" y="28" font-size="14" font-weight="700" fill="currentColor">③ 中立化した取引手数料(エージェント型コマース)</text>
+  <rect x="30" y="100" width="140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="100" y="133" font-size="13" text-anchor="middle" fill="currentColor">ユーザー</text>
+  <rect x="290" y="100" width="140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="360" y="133" font-size="13" text-anchor="middle" fill="currentColor">AIエージェント</text>
+  <rect x="560" y="52" width="120" height="42" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="620" y="78" font-size="12" text-anchor="middle" fill="currentColor">売り手A</text>
+  <rect x="560" y="106" width="120" height="42" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="620" y="132" font-size="12" text-anchor="middle" fill="currentColor">売り手B</text>
+  <rect x="560" y="160" width="120" height="42" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="620" y="186" font-size="12" text-anchor="middle" fill="currentColor">売り手C</text>
+  <line x1="556" y1="73" x2="436" y2="110" stroke="#1a9e5c" stroke-width="2" marker-end="url(#g3)"/>
+  <line x1="556" y1="127" x2="436" y2="127" stroke="#1a9e5c" stroke-width="2" marker-end="url(#g3)"/>
+  <line x1="556" y1="181" x2="436" y2="146" stroke="#1a9e5c" stroke-width="2" marker-end="url(#g3)"/>
+  <text x="494" y="118" font-size="12" text-anchor="middle" fill="#1a9e5c" font-weight="600">全員から一律 X%</text>
+  <line x1="174" y1="114" x2="286" y2="114" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a3)"/>
+  <text x="230" y="106" font-size="11" text-anchor="middle" fill="currentColor">購買を依頼</text>
+  <line x1="286" y1="142" x2="176" y2="142" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a3)"/>
+  <text x="230" y="162" font-size="11" text-anchor="middle" fill="currentColor">中立な推薦・購入代行</text>
+  <text x="360" y="228" font-size="12" text-anchor="middle" fill="currentColor" opacity=".7">料率が一律 → どれを薦めても収益は同じ → 推薦を歪める動機が消える(クレジットカード型)</text>
+</svg>
+<figcaption>図3: 金は売り手から来るが、料率を一律にすることで②の赤い矢印を構造的に消している。</figcaption>
+</figure>
+
+<figure>
+<svg viewBox="0 0 720 210" role="img" aria-label="成果分配モデル:AIが先にユーザーの価値を生み、ユーザーは生まれた成果の一部を事後に払う。前払いゼロで、AIが儲かるのはユーザーが儲かった時だけ">
+  <defs>
+    <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+    <marker id="g4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a9e5c"/></marker>
+  </defs>
+  <text x="16" y="28" font-size="14" font-weight="700" fill="currentColor">④ 成果分配(AIの成功報酬化)— 本命</text>
+  <rect x="60" y="70" width="180" height="70" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="150" y="100" font-size="13" text-anchor="middle" fill="currentColor">ユーザー</text>
+  <text x="150" y="118" font-size="10" text-anchor="middle" fill="currentColor" opacity=".7">前払いゼロで開始</text>
+  <rect x="440" y="70" width="180" height="70" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <text x="530" y="100" font-size="13" text-anchor="middle" fill="currentColor">AIエージェント</text>
+  <text x="530" y="118" font-size="10" text-anchor="middle" fill="currentColor" opacity=".7">成果が出た時だけ収益</text>
+  <line x1="436" y1="88" x2="244" y2="88" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a4)"/>
+  <text x="340" y="78" font-size="12" text-anchor="middle" fill="currentColor">① 先に価値を創出(節約・収入増・勝訴)</text>
+  <line x1="244" y1="122" x2="436" y2="122" stroke="#1a9e5c" stroke-width="2" marker-end="url(#g4)"/>
+  <text x="340" y="144" font-size="12" text-anchor="middle" fill="#1a9e5c" font-weight="600">② 生まれた成果の一部(事後)</text>
+  <text x="360" y="190" font-size="12" text-anchor="middle" fill="currentColor" opacity=".7">弁護士の成功報酬と同型。払う人=受益者、かつ支払いは成果からのみ → 利害一致が構造に埋め込まれる</text>
+</svg>
+<figcaption>図4: 無料ユーザーは「負債」ではなく「未実現の成功報酬の在庫」に変わる。①の健全さと②の無料開始を両立する。</figcaption>
+</figure>
+
+<p style="font-size:.9rem; opacity:.85;">読み方: ②で生まれた赤い矢印(忠実さの歪み)を、③は料率の一律化で、④は支払者と受益者の再統一で消している。広告は①→④へ移行するまでの「つなぎ資金」という位置づけ。</p>
+</body>
+</html>
